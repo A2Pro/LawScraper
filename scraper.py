@@ -64,4 +64,3 @@ def scrape():
 
     return
 
-scrape()
