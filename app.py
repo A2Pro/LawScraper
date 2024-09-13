@@ -35,12 +35,11 @@ def process_keywords(file_path):
 
 @app.route('/')
 def index():
+    scrape()
     cases = process_cases('txtfiles/completed.txt')
     urls = process_urls("txtfiles/completedresponses.txt")
     dates = process_dates("txtfiles/date.txt")
     keywords = process_keywords("txtfiles/keywords.txt")
-    
-    # Zip the data before passing it to the template
     combined_data = zip(cases, urls, dates, keywords)
     
     return render_template('index.html', combined_data=combined_data)

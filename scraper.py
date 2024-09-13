@@ -49,7 +49,7 @@ def scrape():
         html_content = driver.page_source
         soup = BeautifulSoup(html_content, 'html.parser')
         response = ask_gpt("Please summarize this case. It's in HTML format, just ignore that:" + html_content, os.getenv("OPENAI_API_KEY"))
-        response2 = ask_gpt("Please get 10 keywords for the following case in this format: | Keyword1 | Keyword 2| etc. Generate 5-6 keywords maximum. NO TEXT BEFORE OR AFTER, JUST THE KEYWORDS IN THAT FORMAT. Also, no new lines. It will be in html, just ignore that and focus on the text. Here's the case:" + html_content, os.getenv("OPENAI_API_KEY"))
+        response2 = ask_gpt("Please get 10 that fully summarize and encapsulate the following case in this format: | Keyword1 | Keyword 2| etc. Generate 2-6 keywords maximum. NO TEXT BEFORE OR AFTER, JUST THE KEYWORDS IN THAT FORMAT. Also, no new lines. It will be in html, just ignore that and focus on the text. Here's the case:" + html_content, os.getenv("OPENAI_API_KEY"))
         with open("txtfiles/keywords.txt", "a") as f:
             f.write(f"{response2} \n")
             f.write("[]![] \n")
