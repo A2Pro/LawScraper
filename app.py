@@ -74,4 +74,4 @@ def index():
     return render_template('index.html', combined_data=filtered_data, search_query=search_query)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port = 8080)
